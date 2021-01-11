@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "f98df5bf-354c-4b3e-8b6b-e5e4ba783d76",
+		"name": "pet-clinic-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "owners",
+			"item": [
+				{
+					"name": "Create Owner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"firstName\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pet-clinic-service-url}}/v1/owners",
+							"host": [
+								"{{pet-clinic-service-url}}"
+							],
+							"path": [
+								"v1",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Owner",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"firstNameUpdated\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+							"host": [
+								"{{pet-clinic-service-url}}"
+							],
+							"path": [
+								"v1",
+								"owners",
+								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Owner By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+							"host": [
+								"{{pet-clinic-service-url}}"
+							],
+							"path": [
+								"v1",
+								"owners",
+								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Owners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pet-clinic-service-url}}/v1/owners",
+							"host": [
+								"{{pet-clinic-service-url}}"
+							],
+							"path": [
+								"v1",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Owner By ID Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+							"host": [
+								"{{pet-clinic-service-url}}"
+							],
+							"path": [
+								"v1",
+								"owners",
+								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

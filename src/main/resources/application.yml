@@ -1,0 +1,17 @@
+server:
+#  port: ${PORT:0}
+  port: 8081
+  
+spring:
+  application:
+    name: pet-clinic-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    installed-by: ${spring.application.name}
+  jackson:
+    default-property-inclusion: non-null

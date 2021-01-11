@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS owners(
+  id VARCHAR(50) NOT NULL,
+  first_name VARCHAR(25) NOT NULL,
+  last_name VARCHAR(25) NOT NULL,
+  address VARCHAR(255) NULL,
+  city VARCHAR(30) NOT NULL,
+  telephone VARCHAR(9) NOT NULL,
+  CONSTRAINT owners_id_pk PRIMARY KEY (id)
+);

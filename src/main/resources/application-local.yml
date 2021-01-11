@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pet_clinic?currentSchema=pet_clinic
+    username: postgres
+    password: postgres
