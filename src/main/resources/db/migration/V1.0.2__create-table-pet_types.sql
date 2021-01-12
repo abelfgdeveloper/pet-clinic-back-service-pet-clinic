@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS pet_types(
+  id VARCHAR(50) NOT NULL,
+  name VARCHAR(25) NOT NULL,
+  CONSTRAINT pet_types_id_pk PRIMARY KEY (id)
+);

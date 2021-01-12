@@ -9,115 +9,241 @@
 			"name": "owners",
 			"item": [
 				{
-					"name": "Create Owner",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"firstName\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "v1",
+					"item": [
+						{
+							"name": "Create Owner",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"firstName\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/owners",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"owners"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{pet-clinic-service-url}}/v1/owners",
-							"host": [
-								"{{pet-clinic-service-url}}"
-							],
-							"path": [
-								"v1",
-								"owners"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Owner",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"firstNameUpdated\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Update Owner",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"firstNameUpdated\",\r\n    \"lastName\": \"lastName\",\r\n    \"address\": \"address\",\r\n    \"city\": \"city\",\r\n    \"telephone\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"owners",
+										"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
-							"host": [
-								"{{pet-clinic-service-url}}"
-							],
-							"path": [
-								"v1",
-								"owners",
-								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
-							]
+						{
+							"name": "Find Owner By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"owners",
+										"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Owners",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/owners",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"owners"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Owner By ID Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"owners",
+										"9871c64e-5bab-41e5-937e-eaa0478bedd4"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
+					]
+				}
+			]
+		},
+		{
+			"name": "pet-types",
+			"item": [
 				{
-					"name": "Find Owner By ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
-							"host": [
-								"{{pet-clinic-service-url}}"
-							],
-							"path": [
-								"v1",
-								"owners",
-								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
-							]
+					"name": "v1",
+					"item": [
+						{
+							"name": "Create Pet Type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"name\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/pet-types",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"pet-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pet Type",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"nameUpdated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/pet-types/9352de70-8c2e-4421-a6ec-2ce35e8db4a6",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"pet-types",
+										"9352de70-8c2e-4421-a6ec-2ce35e8db4a6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Pet Type By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/pet-types/9352de70-8c2e-4421-a6ec-2ce35e8db4a6",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"pet-types",
+										"9352de70-8c2e-4421-a6ec-2ce35e8db4a6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Pet Types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/pet-types",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"pet-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Pet Type By ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{pet-clinic-service-url}}/v1/pet-types/9352de70-8c2e-4421-a6ec-2ce35e8db4a6",
+									"host": [
+										"{{pet-clinic-service-url}}"
+									],
+									"path": [
+										"v1",
+										"pet-types",
+										"9352de70-8c2e-4421-a6ec-2ce35e8db4a6"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find All Owners",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{pet-clinic-service-url}}/v1/owners",
-							"host": [
-								"{{pet-clinic-service-url}}"
-							],
-							"path": [
-								"v1",
-								"owners"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Owner By ID Copy",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{pet-clinic-service-url}}/v1/owners/9871c64e-5bab-41e5-937e-eaa0478bedd4",
-							"host": [
-								"{{pet-clinic-service-url}}"
-							],
-							"path": [
-								"v1",
-								"owners",
-								"9871c64e-5bab-41e5-937e-eaa0478bedd4"
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		}

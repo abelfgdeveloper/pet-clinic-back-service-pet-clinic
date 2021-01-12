@@ -8,11 +8,11 @@ public class BadRequestException extends AbelfgDeveloperException {
 
   private static final int STATUS = 400;
 
-  protected BadRequestException(String errorCode) {
+  public BadRequestException(String errorCode) {
     super(STATUS, errorCode);
   }
 
-  protected BadRequestException(String errorCode, Throwable cause) {
+  public BadRequestException(String errorCode, Throwable cause) {
     super(STATUS, errorCode, cause);
   }
 }
