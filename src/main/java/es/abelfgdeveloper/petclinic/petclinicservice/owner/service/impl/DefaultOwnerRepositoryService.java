@@ -1,6 +1,8 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.service.impl;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.client.NotFoundException;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.Owner;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.mapper.OwnerMapper;
@@ -8,8 +10,9 @@ import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.entity.OwnerEnt
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.repository.OwnerRepository;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.service.OwnerRepositoryService;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.util.OwnerErrorCode;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -17,7 +20,9 @@ import org.springframework.stereotype.Service;
 public class DefaultOwnerRepositoryService implements OwnerRepositoryService {
 
   private final OwnerRepository ownerRepository;
+
   private final OwnerMapper ownerMapper;
+  private final PaginationMapper paginationMapper;
 
   @Override
   public Owner create(Owner owner) {
@@ -47,10 +52,12 @@ public class DefaultOwnerRepositoryService implements OwnerRepositoryService {
   }
 
   @Override
-  public OwnerPaginated findAll() {
+  public OwnerPaginated findAll(PaginationIn paginationIn) {
+    Page<OwnerEntity> ownerPagination =
+        ownerRepository.findAll(PageRequest.of(paginationIn.getPage(), paginationIn.getSize()));
     return OwnerPaginated.builder()
-        .owners(
-            ownerRepository.findAll().stream().map(ownerMapper::map).collect(Collectors.toList()))
+        .pagination(paginationMapper.map(ownerPagination))
+        .owners(ownerMapper.map(ownerPagination.getContent()))
         .build();
   }
 

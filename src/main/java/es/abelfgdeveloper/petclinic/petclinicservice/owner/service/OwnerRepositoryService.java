@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.service;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.Owner;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated;
 
@@ -13,5 +14,5 @@ public interface OwnerRepositoryService {
 
   Owner findById(String id);
 
-  OwnerPaginated findAll();
+  OwnerPaginated findAll(PaginationIn paginationIn);
 }

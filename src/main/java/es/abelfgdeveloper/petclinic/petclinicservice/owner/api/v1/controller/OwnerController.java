@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.controller;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.OwnerApi;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.mapper.OwnerMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.resource.request.CreateOwnerRequestResource;
@@ -34,6 +35,7 @@ public class OwnerController implements OwnerApi {
   private final OwnerPaginatedResponseResourceValidator ownerPaginatedResponseResourceValidator;
 
   private final OwnerMapper ownerMapper;
+  private final PaginationMapper paginationMapper;
 
   @Override
   public OwnerResponseResource create(CreateOwnerRequestResource request) {
@@ -66,8 +68,9 @@ public class OwnerController implements OwnerApi {
   }
 
   @Override
-  public OwnerPaginatedResponseResource findAll() {
-    OwnerPaginatedResponseResource response = ownerMapper.map(findOwnerPaginatedUseCase.execute());
+  public OwnerPaginatedResponseResource findAll(Integer page, Integer size) {
+    OwnerPaginatedResponseResource response =
+        ownerMapper.map(findOwnerPaginatedUseCase.execute(paginationMapper.map(page, size)));
     ownerPaginatedResponseResourceValidator.validate(response);
     return response;
   }

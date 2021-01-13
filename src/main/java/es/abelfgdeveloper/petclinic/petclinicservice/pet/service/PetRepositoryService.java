@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.service;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.Pet;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.PetPaginated;
 
@@ -13,5 +14,5 @@ public interface PetRepositoryService {
 
   Pet findById(String id);
 
-  PetPaginated findAll();
+  PetPaginated findAll(PaginationIn pagination);
 }

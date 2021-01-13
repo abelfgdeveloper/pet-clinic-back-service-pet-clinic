@@ -2,6 +2,7 @@ package es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.objectmother.OwnerObjectMother;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.resource.request.CreateOwnerRequestResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.resource.request.UpdateOwnerRequestResource;
@@ -12,16 +13,19 @@ import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerMapperTest {
 
+  @Mock PaginationMapper paginationMapper;
+
   OwnerMapper ownerMapper;
 
   @BeforeEach
   void setUp() {
-    this.ownerMapper = new OwnerMapper();
+    this.ownerMapper = new OwnerMapper(paginationMapper);
   }
 
   @Test

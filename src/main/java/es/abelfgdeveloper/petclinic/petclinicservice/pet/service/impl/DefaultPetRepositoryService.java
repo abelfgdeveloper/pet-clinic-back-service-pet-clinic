@@ -1,6 +1,8 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.service.impl;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.client.NotFoundException;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.Pet;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.PetPaginated;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.mapper.PetMapper;
@@ -9,6 +11,8 @@ import es.abelfgdeveloper.petclinic.petclinicservice.pet.model.repository.PetRep
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.service.PetRepositoryService;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.util.PetErrorCode;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -16,7 +20,9 @@ import org.springframework.stereotype.Service;
 public class DefaultPetRepositoryService implements PetRepositoryService {
 
   private final PetRepository petRepository;
+
   private final PetMapper petMapper;
+  private final PaginationMapper paginationMapper;
 
   @Override
   public Pet create(Pet pet) {
@@ -42,8 +48,13 @@ public class DefaultPetRepositoryService implements PetRepositoryService {
   }
 
   @Override
-  public PetPaginated findAll() {
-    return PetPaginated.builder().pets(petMapper.map(petRepository.findAll())).build();
+  public PetPaginated findAll(PaginationIn paginationIn) {
+    Page<PetEntity> petPagination =
+        petRepository.findAll(PageRequest.of(paginationIn.getPage(), paginationIn.getSize()));
+    return PetPaginated.builder()
+        .pagination(paginationMapper.map(petPagination))
+        .pets(petMapper.map(petPagination.getContent()))
+        .build();
   }
 
   private PetEntity find(String id) {

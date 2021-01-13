@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.api.v1.resource.response;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.api.v1.resource.response.PaginationResponseResource;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,5 +17,6 @@ import lombok.ToString;
 @ToString
 public class OwnerPaginatedResponseResource {
 
+  private PaginationResponseResource pagination;
   private List<OwnerResponseResource> owners;
 }

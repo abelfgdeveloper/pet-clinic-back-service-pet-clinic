@@ -2,6 +2,8 @@ package es.abelfgdeveloper.petclinic.petclinicservice.owner.mapper;
 
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.Owner;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.entity.OwnerEntity;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,5 +28,9 @@ public class OwnerMapper {
         .city(owner.getCity())
         .telephone(owner.getTelephone())
         .build();
+  }
+
+  public List<Owner> map(List<OwnerEntity> owners) {
+    return owners.stream().map(this::map).collect(Collectors.toList());
   }
 }

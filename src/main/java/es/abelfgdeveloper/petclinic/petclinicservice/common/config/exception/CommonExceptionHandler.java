@@ -1,6 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.common.config.exception;
 
-import es.abelfgdeveloper.petclinic.petclinicservice.common.api.resource.response.ErrorResponseResource;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.api.v1.resource.response.ErrorResponseResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.AbelfgDeveloperException;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.StackTraceMapper;
 import java.time.OffsetDateTime;

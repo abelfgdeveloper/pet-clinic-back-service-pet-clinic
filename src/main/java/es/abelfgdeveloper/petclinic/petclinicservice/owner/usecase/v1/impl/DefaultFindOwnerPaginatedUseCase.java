@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.usecase.v1.impl;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.service.OwnerRepositoryService;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.usecase.v1.FindOwnerPaginatedUseCase;
@@ -15,7 +16,7 @@ public class DefaultFindOwnerPaginatedUseCase implements FindOwnerPaginatedUseCa
 
   @Transactional(readOnly = true)
   @Override
-  public OwnerPaginated execute() {
-    return ownerRepositoryService.findAll();
+  public OwnerPaginated execute(PaginationIn paginationIn) {
+    return ownerRepositoryService.findAll(paginationIn);
   }
 }

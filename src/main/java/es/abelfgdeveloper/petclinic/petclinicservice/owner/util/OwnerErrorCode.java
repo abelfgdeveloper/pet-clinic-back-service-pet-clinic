@@ -1,6 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.owner.util;
 
-import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.CommonErrorCode;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.util.CommonErrorCode;
 
 public class OwnerErrorCode {
 

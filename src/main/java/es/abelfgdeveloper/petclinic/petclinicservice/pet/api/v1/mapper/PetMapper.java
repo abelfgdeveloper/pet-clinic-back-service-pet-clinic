@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.mapper;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.request.CreatePetRequestResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.request.UpdatePetRequestResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.response.PetPaginatedResponseResource;
@@ -7,10 +8,14 @@ import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.respons
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.Pet;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.domain.PetPaginated;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@RequiredArgsConstructor
 @Component("v1ResourcePetMapper")
 public class PetMapper {
+
+  private final PaginationMapper paginationMapper;
 
   public Pet map(CreatePetRequestResource pet) {
     return Pet.builder()
@@ -37,6 +42,7 @@ public class PetMapper {
 
   public PetPaginatedResponseResource map(PetPaginated petPaginated) {
     return PetPaginatedResponseResource.builder()
+        .pagination(paginationMapper.map(petPaginated.getPagination()))
         .pets(petPaginated.getPets().stream().map(this::map).collect(Collectors.toList()))
         .build();
   }

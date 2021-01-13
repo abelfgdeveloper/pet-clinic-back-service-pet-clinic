@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.controller;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.PetApi;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.mapper.PetMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.request.CreatePetRequestResource;
@@ -12,8 +13,8 @@ import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.validation.PetRe
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.validation.UpdatePetRequestResourceValidator;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.CreatePetUseCase;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.DeletePetByIdUseCase;
-import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.FindAllPetUseCase;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.FindPetByIdUseCase;
+import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.FindPetPaginatedUseCase;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1.UpdatePetUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class PetController implements PetApi {
   private final UpdatePetUseCase updatePetUseCase;
   private final DeletePetByIdUseCase deletePetByIdUseCase;
   private final FindPetByIdUseCase findPetByIdUseCase;
-  private final FindAllPetUseCase findAllPetUseCase;
+  private final FindPetPaginatedUseCase findPetPaginatedUseCase;
 
   private final CreatePetRequestResourceValidator createPetRequestResourceValidator;
   private final UpdatePetRequestResourceValidator updatePetRequestResourceValidator;
@@ -34,6 +35,7 @@ public class PetController implements PetApi {
   private final PetPaginatedResponseResourceValidator petPaginatedResponseResourceValidator;
 
   private final PetMapper petMapper;
+  private final PaginationMapper paginationMapper;
 
   @Override
   public PetResponseResource create(CreatePetRequestResource request) {
@@ -65,8 +67,10 @@ public class PetController implements PetApi {
   }
 
   @Override
-  public PetPaginatedResponseResource findAll() {
-    PetPaginatedResponseResource response = petMapper.map(findAllPetUseCase.execute());
+  public PetPaginatedResponseResource findAll(Integer page, Integer size) {
+    paginationMapper.map(page, size);
+    PetPaginatedResponseResource response =
+        petMapper.map(findPetPaginatedUseCase.execute(paginationMapper.map(page, size)));
     petPaginatedResponseResourceValidator.validate(response);
     return response;
   }

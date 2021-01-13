@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.domain;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationOut;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,5 +17,6 @@ import lombok.ToString;
 @ToString
 public class PetPaginated {
 
+  private PaginationOut pagination;
   private List<Pet> pets;
 }

@@ -1,7 +1,7 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.usecase.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import es.abelfgdeveloper.petclinic.petclinicservice.common.api.resource.response.ErrorResponseResource;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.api.v1.resource.response.ErrorResponseResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.objectmother.PetObjectMother;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.api.v1.resource.response.PetResponseResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.pet.model.entity.PetEntity;

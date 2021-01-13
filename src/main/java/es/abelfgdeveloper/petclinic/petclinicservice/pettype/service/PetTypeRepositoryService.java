@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pettype.service;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.domain.PaginationIn;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.domain.PetType;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.domain.PetTypePaginated;
 
@@ -13,5 +14,5 @@ public interface PetTypeRepositoryService {
 
   PetType findById(String id);
 
-  PetTypePaginated findAll();
+  PetTypePaginated findAll(PaginationIn paginationIn);
 }

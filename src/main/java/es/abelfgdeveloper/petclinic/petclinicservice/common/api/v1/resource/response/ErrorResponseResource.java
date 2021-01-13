@@ -1,4 +1,4 @@
-package es.abelfgdeveloper.petclinic.petclinicservice.common.api.resource.response;
+package es.abelfgdeveloper.petclinic.petclinicservice.common.api.v1.resource.response;
 
 import java.time.OffsetDateTime;
 import java.util.List;

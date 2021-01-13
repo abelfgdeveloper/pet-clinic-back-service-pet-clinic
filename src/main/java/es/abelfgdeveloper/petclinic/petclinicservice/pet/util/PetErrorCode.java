@@ -1,6 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pet.util;
 
-import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.CommonErrorCode;
+import es.abelfgdeveloper.petclinic.petclinicservice.common.util.CommonErrorCode;
 
 public class PetErrorCode {
 

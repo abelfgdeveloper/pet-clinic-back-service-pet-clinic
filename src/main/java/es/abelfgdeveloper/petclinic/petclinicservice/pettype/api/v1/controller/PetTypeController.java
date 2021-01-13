@@ -1,5 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.pettype.api.v1.controller;
 
+import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.PaginationMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.api.v1.PetTypeApi;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.api.v1.mapper.PetTypeMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.api.v1.resource.request.CreatePetTypeRequestResource;
@@ -34,6 +35,7 @@ public class PetTypeController implements PetTypeApi {
   private final PetTypePaginatedResponseResourceValidator petTypePaginatedResponseResourceValidator;
 
   private final PetTypeMapper petTypeMapper;
+  private final PaginationMapper paginationMapper;
 
   @Override
   public PetTypeResponseResource create(CreatePetTypeRequestResource request) {
@@ -66,9 +68,9 @@ public class PetTypeController implements PetTypeApi {
   }
 
   @Override
-  public PetTypePaginatedResponseResource findAll() {
+  public PetTypePaginatedResponseResource findAll(Integer page, Integer size) {
     PetTypePaginatedResponseResource response =
-        petTypeMapper.map(findAllPetTypePaginatedUseCase.execute());
+        petTypeMapper.map(findAllPetTypePaginatedUseCase.execute(paginationMapper.map(page, size)));
     petTypePaginatedResponseResourceValidator.validate(response);
     return response;
   }

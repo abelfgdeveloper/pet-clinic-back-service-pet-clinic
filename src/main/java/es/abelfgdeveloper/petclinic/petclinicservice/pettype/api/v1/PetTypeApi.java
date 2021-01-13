@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequestMapping("/v1/pet-types")
@@ -36,5 +37,7 @@ public interface PetTypeApi {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  PetTypePaginatedResponseResource findAll();
+  PetTypePaginatedResponseResource findAll(
+      @RequestParam(name = "page", required = false) Integer page,
+      @RequestParam(name = "size", required = false) Integer size);
 }
