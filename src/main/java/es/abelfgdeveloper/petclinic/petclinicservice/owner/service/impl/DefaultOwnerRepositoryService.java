@@ -6,7 +6,7 @@ import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.mapper.OwnerMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.entity.OwnerEntity;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.repository.OwnerRepository;
-import es.abelfgdeveloper.petclinic.petclinicservice.owner.service.OwnerRespositoryService;
+import es.abelfgdeveloper.petclinic.petclinicservice.owner.service.OwnerRepositoryService;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.util.OwnerErrorCode;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class DefaultOwnerRespositoryService implements OwnerRespositoryService {
+public class DefaultOwnerRepositoryService implements OwnerRepositoryService {
 
   private final OwnerRepository ownerRepository;
   private final OwnerMapper ownerMapper;

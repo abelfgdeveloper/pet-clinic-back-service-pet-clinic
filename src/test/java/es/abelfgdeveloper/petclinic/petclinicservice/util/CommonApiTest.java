@@ -2,6 +2,7 @@ package es.abelfgdeveloper.petclinic.petclinicservice.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.model.repository.OwnerRepository;
+import es.abelfgdeveloper.petclinic.petclinicservice.pet.model.repository.PetRepository;
 import es.abelfgdeveloper.petclinic.petclinicservice.pettype.model.repository.PetTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
@@ -12,10 +13,12 @@ public abstract class CommonApiTest {
   @Autowired protected MockMvc mvc;
   @Autowired protected OwnerRepository ownerRepository;
   @Autowired protected PetTypeRepository petTypeRepository;
+  @Autowired protected PetRepository petRepository;
 
   protected void cleanDataBase() {
     ownerRepository.deleteAll();
     petTypeRepository.deleteAll();
+    petRepository.deleteAll();
   }
 
   protected <T> T convertJsonAsStringToObject(String jsonAsString, Class<T> valueType)

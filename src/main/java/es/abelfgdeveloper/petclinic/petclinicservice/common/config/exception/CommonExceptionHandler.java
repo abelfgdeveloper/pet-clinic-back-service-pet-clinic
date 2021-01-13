@@ -3,7 +3,7 @@ package es.abelfgdeveloper.petclinic.petclinicservice.common.config.exception;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.api.resource.response.ErrorResponseResource;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.exception.AbelfgDeveloperException;
 import es.abelfgdeveloper.petclinic.petclinicservice.common.mapper.StackTraceMapper;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +38,7 @@ public class CommonExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     return ErrorResponseResource.builder()
-        .timestamp(LocalDateTime.now())
+        .timestamp(OffsetDateTime.now())
         .detail(ex.getClass().getSimpleName())
         .code(ex.getMessage())
         .stackTrace(stackTraceMapper.map(ex.getStackTrace()))

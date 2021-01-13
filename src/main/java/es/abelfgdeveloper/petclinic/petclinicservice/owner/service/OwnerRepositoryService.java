@@ -3,7 +3,7 @@ package es.abelfgdeveloper.petclinic.petclinicservice.owner.service;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.Owner;
 import es.abelfgdeveloper.petclinic.petclinicservice.owner.domain.OwnerPaginated;
 
-public interface OwnerRespositoryService {
+public interface OwnerRepositoryService {
 
   Owner create(Owner owner);
 

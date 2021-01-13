@@ -1,6 +1,6 @@
 package es.abelfgdeveloper.petclinic.petclinicservice.common.api.resource.response;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import lombok.ToString;
 @ToString
 public class ErrorResponseResource {
 
-  private LocalDateTime timestamp;
+  private OffsetDateTime timestamp;
   private int status;
   private String error;
   private String message;
